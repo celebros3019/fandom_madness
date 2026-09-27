@@ -1,0 +1,110 @@
+workspace "Name" "Description" {
+
+    !identifiers hierarchical
+
+    model {
+        s = softwareSystem "The Schema"
+        fb = person "Frodo Baggins" {
+            tags "Frodo Baggins"
+        }
+        c = person "Celebrimbor" {
+            tags "Celebrimbor"
+        }
+        a = person "Annatar" {
+            tags "Annatar"
+        }
+        ff = person "Finrod Felagund" {
+            tags "Finrod Felagund"
+        }
+        m = person "Maglor" {
+            tags "Maglor"
+        }
+        md = person "Maedhros" {
+            tags "Maedhros"
+        }
+        
+        fb -> c "is so weird about"
+        fb -> a "is so weird about"
+        fb -> ff "is so weird about"
+        c -> a "is so weird about"
+        c -> ff "is so weird about"
+        c -> fb "is so weird about"
+        a -> c "is so weird about"
+        a -> ff "is so weird about"
+        a -> fb "is so weird about"
+        ff -> a "is so weird about"
+        ff -> c "is so weird about"
+        ff -> fb "is so weird about"
+        m -> fb "is completely normal about"
+        m -> ff "is completely normal about"
+        m -> c "is completely normal about"
+        m -> a "is completely normal about"
+        m -> md "is so weird about"
+        md -> m "is so weird about"
+        md -> fb "is so weird about"
+        fb -> md "is eldritch about"
+        md -> a "is so weird about"
+        a -> md "is so weird about"
+        md -> c "is ... actually pretty normal about"
+        c -> md "is ... actually pretty normal about"
+        md -> ff "is completely normal about"
+        ff -> md "is completely normal about"
+
+    }
+
+    views {
+        systemContext s "Diagram1" {
+            include fb c a ff m md
+        }
+
+        styles {
+            element "Element" {
+                color white
+                stroke white
+                strokeWidth 7
+                shape roundedbox
+            }
+            element "Frodo Baggins" {
+                shape person
+                stroke green
+                color green
+            }
+            element "Annatar" {
+                shape person
+                stroke orange
+                color orange
+            }
+            element "Finrod Felagund" {
+                shape person
+                stroke blue
+                color blue
+            }
+            element "Celebrimbor" {
+                shape person
+                stroke silver
+                color silver
+            }
+            element "Maglor" {
+                shape person
+                stroke red
+                color red
+            }
+            element "Maedhros" {
+                shape person
+                stroke purple
+                color purple
+            }
+            element "Boundary" {
+                strokeWidth 5
+            }
+            relationship "Relationship" {
+                thickness 4
+            }
+        }
+    }
+
+    configuration {
+        scope softwaresystem
+    }
+
+}
